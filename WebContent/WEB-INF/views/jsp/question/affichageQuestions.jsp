@@ -7,8 +7,8 @@
 		<li class="collection-item avatar">
 			<c:out value="${ question.libelle }" />
 			<div style="float: right;">
-				<a href='/<c:out value="${questionnaire.id}" />/questions/<c:out value="${question.id}" />/supprimer' class="secondary-content posRelative" title="Supprimer"><i class="material-icons">cancel</i></a>
-				<a href='/<c:out value="${questionnaire.id}" />/questions/<c:out value="${question.id}" />/modifier' class="secondary-content posRelative" title="Editer"><i class="material-icons">edit</i></a>
+				<a href='questions/<c:out value="${question.id}" />/supprimer' class="secondary-content posRelative" title="Supprimer"><i class="material-icons">cancel</i></a>
+				<a href='questions/<c:out value="${question.id}" />/modifier' class="secondary-content posRelative" title="Editer"><i class="material-icons">edit</i></a>
 			</div>
 		</li>
 		</c:forEach>
