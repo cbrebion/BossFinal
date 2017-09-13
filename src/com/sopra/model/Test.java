@@ -107,6 +107,9 @@ public class Test implements Serializable{
 		this.candidatTests = candidatTests;
 	}
 
-	
+	//pour récupérer le nom du test
+	public String toString() {
+		return niveau+" "+branche;
+	}
 	
 }
