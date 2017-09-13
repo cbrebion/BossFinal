@@ -46,6 +46,12 @@
 		<put-attribute name="title" value="Ajout d'un Questionnaire" />
 		<put-attribute name="contenu" value="/WEB-INF/views/jsp/questionnaire/ajoutQuestionnaire.jsp" />
 	</definition>
+	
+	<!-- Configuration de la vue "ajout d'un questionnaire d'un test" -->
+	<definition name="ajoutQuestionnaireTest" extends="base.definition">
+		<put-attribute name="title" value="Ajout d'un Questionnaire" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/questionnaire/ajoutQuestionnaireTest.jsp" />
+	</definition>
 
 	<!-- Configuration de la vue "creation d'une proposition" -->
 	<definition name="ajoutProposition" extends="base.definition">
