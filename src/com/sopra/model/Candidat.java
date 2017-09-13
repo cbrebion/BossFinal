@@ -12,8 +12,8 @@ import javax.persistence.Table;
 @Table(name="candidat")
 @PrimaryKeyJoinColumn(name="CAN_ID", referencedColumnName="PER_ID")
 public class Candidat extends Personne {
-
-
+	private static final long serialVersionUID = 1L;
+	
 	// Attributs
 	@OneToMany(mappedBy="candidat")
 	protected List<CandidatTest> candidatTests;

@@ -7,8 +7,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="admin")
 public class Admin extends Personne {
+	private static final long serialVersionUID = 1L;
 
-	
 	// Attributs
 	@Column(name="ADM_PSEUDO")
 	protected String pseudo;
