@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sopra.dao.IQuestionnaireDAO;
 import com.sopra.model.Questionnaire;
-import com.sopra.model.Tetrimino;
-import com.sopra.validator.AddTetriminoValidator;
 
 @Controller
 public class QuestionnaireController {
