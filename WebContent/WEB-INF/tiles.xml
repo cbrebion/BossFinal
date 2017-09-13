@@ -23,6 +23,18 @@
 		<put-attribute name="contenu" value="/WEB-INF/views/jsp/test/test.jsp" />
 	</definition>
 
+<!-- Configuration de la vue "liste des candidats" -->
+	<definition name="affichageCandidats" extends="base.definition">
+		<put-attribute name="title" value="Affichage des Candidats" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/candidat/affichageCandidat.jsp" />
+	</definition>
+	
+		<!-- Configuration de la vue "creation d'un candidat" -->
+	<definition name="ajoutCandidat" extends="base.definition">
+		<put-attribute name="title" value="Creation d'un candidat" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/candidat/candidat.jsp" />
+	</definition>
+
 <!-- Configuration de la vue "liste des tests" -->
 	<definition name="affichageTests" extends="base.definition">
 		<put-attribute name="title" value="Affichage des Test" />
@@ -77,7 +89,7 @@
 		<put-attribute name="contenu" value="/WEB-INF/views/jsp/question/modifierQuestion.jsp" />
 	</definition>
 	
-	<!-- Configuration de la vue "modification d'une question" -->
+	<!-- Configuration de la vue "ajout d'une question" -->
 	<definition name="ajouterQuestion" extends="base.definition">
 		<put-attribute name="title" value="Ajout d'une question" />
 		<put-attribute name="contenu" value="/WEB-INF/views/jsp/question/ajouterQuestion.jsp" />

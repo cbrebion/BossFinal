@@ -12,7 +12,7 @@
 		</tr>
 	</thead>
 
-	<tbody>
+	<tbody class="stripped">
 
 		<c:forEach items="${affichageTests}" var="item">
 			<tr>

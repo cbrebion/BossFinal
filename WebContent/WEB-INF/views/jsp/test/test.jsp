@@ -8,7 +8,7 @@
 		<h5>Branche</h5>
 		<form:input path="branche" class="row center" />
 		<br />
-		<button class="btn waves-effect waves-light red lighten-1"
+		<button class="btn waves-effect waves-light blue"
 			type="submit" name="Valider">
 			Valider<i class="material-icons right">send</i>
 		</button>
