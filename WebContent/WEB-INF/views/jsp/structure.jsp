@@ -23,9 +23,8 @@
 	<tiles:insertAttribute name="contenu" />
 	
 	<!-- Code Javascript -->
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/tetrimino/js/materialize.min.js"></script>
+	<script src="/BossFinal/Resources/jquery-3.2.1.min.js"></script>
+	<script src="/BossFinal/Resources/materialize/js/materialize.min.js"></script>
 	<script>
 		$(document).ready(function() {
 		    $(".dropdown-button").dropdown({ hover: true });

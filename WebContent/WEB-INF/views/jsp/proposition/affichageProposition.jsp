@@ -1,8 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<div>
-<div>La question est : ${question.libelle}</div>
-<div> Voici réponses correspondantes : </div>
+<div class="row">
+<div class="col s8 offset-s2">La question est : ${question.libelle}</div>
+<div class="col s8 offset-s2"> Voici les réponses correspondantes : </div>
+<div class="col s8 offset-s2">
 	<table>
 		<thead>
 		<tr>
@@ -19,4 +20,5 @@
 		</tr>
 		</tbody>
 	</table>
+</div>
 </div>
