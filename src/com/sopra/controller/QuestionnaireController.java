@@ -24,11 +24,11 @@ public class QuestionnaireController {
 	
 	// LISTING
 		// Affichage des questionnaires
-		@RequestMapping(value="/affichageQuestionnaire", method=RequestMethod.GET)
+		@RequestMapping(value="/questionnaires", method=RequestMethod.GET)
 		public String afficherQuestionnaire(Model model
 											) {
 			model.addAttribute("Questionnaires", questionnaireDAO.findAll());
-			return "affichageQuestionnaire";
+			return "affichageQuestionnaires";
 		}
 	
 	
