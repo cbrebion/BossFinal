@@ -14,13 +14,13 @@
 
 	<tbody>
 
-		<c:forEach items="${affichageTests}" var="item">
+		<c:forEach items="${affichageCandidats}" var="item">
 			<tr>
-				<td><a href="/BossFinal/test-${ item.id }/questionnaires">${ item.branche }
-				</a></td>
+				<td>${ item.nom }
+				</td>
 
-				<td><a href="/BossFinal/test-${ item.id }/questionnaires">${item.niveau }
-				</a></td>
+				<td>${item.prenom }
+				</td>
 			</tr>
 
 		</c:forEach>
@@ -32,6 +32,6 @@
 
 <div>
 		
-		 <a href="/BossFinal/test/add" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+		 <a href="/BossFinal/candidat/add" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add</i></a>
 		
 </div>
