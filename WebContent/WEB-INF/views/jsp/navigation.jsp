@@ -10,7 +10,7 @@
 
 <c:set var="uri" value="${ requestScope['javax.servlet.forward.request_uri'] }" />
 
-<nav class="red darken-4" role="navigation">
+<nav class="blue darken-3" role="navigation">
 	<div class="nav-wrapper container">
 		<a id="logo-container" href="${ accueil }" class="brand-logo">Tetrimino</a>
 		
