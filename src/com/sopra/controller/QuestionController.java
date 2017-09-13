@@ -46,7 +46,7 @@ public class QuestionController {
 		
 		model.addAttribute(ATT_QUESTIONS, questions);
 		
-		return idQuestionnaire + "/questions";
+		return "affichageQuestions";
 	}
 	
 	
@@ -57,7 +57,7 @@ public class QuestionController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/{idQuestionnaire}/modifier/{idQuestion}", method = RequestMethod.GET)
+	@RequestMapping(value="/{idQuestionnaire}/questions/{idQuestion}/modifier", method = RequestMethod.GET)
 	public String modifierQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
 									@PathVariable(value="idQuestion", required=true) int idQuestion,
 									Model model) {
@@ -79,7 +79,7 @@ public class QuestionController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/{idQuestionnaire}/modifier/{idQuestion}", method = RequestMethod.POST)
+	@RequestMapping(value="/{idQuestionnaire}/questions/{idQuestion}/modifier", method = RequestMethod.POST)
 	public String modifierQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
 									@PathVariable(value="idQuestion", required=true) int idQuestion,
 									@Valid @ModelAttribute("question") Question q,
@@ -97,12 +97,13 @@ public class QuestionController {
 		question.setLibelle(q.getLibelle());
 		
 		question = questionHibernateDAO.save(question);
-		
-		return "redirect:/" + idQuestionnaire + "/questions";
+
+		//return "redirect:/" + idQuestionnaire + "/questions";
+		return "redirect:/{idQuestionnaire}/questions";
 	}
 	
 	
-	@RequestMapping(value="/{idQuestionnaire}/supprimer/{idQuestion}", method = RequestMethod.GET)
+	@RequestMapping(value="/{idQuestionnaire}/questions/{idQuestion}/supprimer", method = RequestMethod.GET)
 	public String supprimerQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
 									@PathVariable(value="idQuestion", required=true) int idQuestion,
 									Model model) {
