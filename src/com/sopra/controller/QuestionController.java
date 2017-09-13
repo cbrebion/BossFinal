@@ -1,5 +1,6 @@
 package com.sopra.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sopra.dao.IQuestionDAO;
 import com.sopra.dao.IQuestionnaireDAO;
+import com.sopra.model.Proposition;
 import com.sopra.model.Question;
 import com.sopra.model.Questionnaire;
 
@@ -80,12 +82,23 @@ public class QuestionController {
 	 * @return
 	 */
 	@RequestMapping(value="/{idQuestionnaire}/ajoutQuestion", method = RequestMethod.POST)
-	public String modifierQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
-			@Valid @ModelAttribute("question") Question q,
+	public String ajoutQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
+			@Valid @ModelAttribute("question") Question question,
 			BindingResult result,
 			Model model) {
 		
-		// TO DO
+		if (result.hasErrors()) {
+			System.out.println("DANS ERROR");
+			return "ajouterQuestion";
+		}
+		
+		System.out.println("DANS POST");
+		
+		Questionnaire questionnaire = questionnaireHibernateDAO.find(idQuestionnaire);
+		
+		question.setQuestionnaire(questionnaire);
+		
+		question = questionHibernateDAO.save(question);
 		
 		
 		return "redirect:/{idQuestionnaire}/questions";
@@ -154,6 +167,13 @@ public class QuestionController {
 		questionHibernateDAO.delete(question);
 		
 		return "redirect:/{idQuestionnaire}/questions";
+	}
+	
+	
+	@ModelAttribute("question")
+	public Question initQuestion() {
+		Question question = new Question();
+		return question;
 	}
 
 }
