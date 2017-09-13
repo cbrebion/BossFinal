@@ -38,7 +38,7 @@ public class CandidatController {
 	public String getListeCandidat(Model model) {
 		model.addAttribute("affichageCandidats", candidatDAO.findAll());
 
-		return "affichageCandidatss";
+		return "affichageCandidats";
 	}
 	
 	//Création d'un test
