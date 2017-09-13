@@ -60,16 +60,45 @@ public class QuestionnaireController {
 			return "ajoutQuestionnaire";
 		}
 		
+		
+		
+	// ASSOCIATION & DISSOCIATION
+		// Page d'association de questionnaire et de test
+		@RequestMapping(value="test-{id}/associer/{idQ}", method=RequestMethod.GET)
+		public String associerQuestionnaireTest(@PathVariable(value="idT", required=true) Integer idT,
+												@PathVariable(value="idQ", required=true) Integer idQ,
+												Model model
+												) {
+			Questionnaire questionnaire = questionnaireDAO.find(idQ);
+			Test test = testDAO.find(idT);
+			test.getQuestionnaires().add(questionnaire);
+			
+			return "redirect:/test-{id}/questionnaires";
+		}
+		
+		// Page de dissociation de questionnaire et de test
+		@RequestMapping(value="test-{idT}/dissocier/{idQ}", method=RequestMethod.GET)
+		public String dissocierQuestionnaireTest(@PathVariable(value="idT", required=true) Integer idT,
+												@PathVariable(value="idQ", required=true) Integer idQ,
+												Model model
+												) {
+			Questionnaire questionnaire = questionnaireDAO.find(idQ);
+			Test test = testDAO.find(idT);
+			test.getQuestionnaires().remove(questionnaire);
+			
+			return "redirect:/questionnaires";
+		}
+		
+		
+		
+		
+		
 		// Process d'ajout de questionnaire
 		@RequestMapping(value="/processAjoutQuestionnaire", method=RequestMethod.POST)
 		public String processAjoutQuestionnaire(@Valid @ModelAttribute("nouveauQuestionnaire") Questionnaire nouveauQuestionnaire,
 												BindingResult result,
 												Model model
 												) {
-		/*new AjouterQuestionnaireValidateur().validate(nouveauQuestionnaire, result);
-			if(result.hasErrors()) {
-				return "ajoutQuestionnaire";
-			}*/
 		questionnaireDAO.save(nouveauQuestionnaire);
 		return "redirect:/affichageQuestionnaire";
 		}
