@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -24,6 +25,7 @@ public class Question implements Serializable{
 	@Column(name="QUE_ID")
 	private int id;
 	
+	@ManyToOne
 	@JoinColumn(name="QUE_QUESTIONNAIRE")
 	@NotNull
 	private Questionnaire questionnaire;
