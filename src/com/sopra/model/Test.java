@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +31,10 @@ public class Test implements Serializable{
 	
 	@ManyToMany(mappedBy="tests")
 	private List<Questionnaire> questionnaires;
+	
+	@OneToMany(mappedBy="test")
+	private List<CandidatTest> candidatTests;
+	
 	
 	//getters and setters
 	/**
@@ -86,6 +91,20 @@ public class Test implements Serializable{
 	 */
 	public void setQuestionnaires(List<Questionnaire> questionnaires) {
 		this.questionnaires = questionnaires;
+	}
+
+	/**
+	 * @return the candidatTests
+	 */
+	public List<CandidatTest> getCandidatTests() {
+		return candidatTests;
+	}
+
+	/**
+	 * @param candidatTests the candidatTests to set
+	 */
+	public void setCandidatTests(List<CandidatTest> candidatTests) {
+		this.candidatTests = candidatTests;
 	}
 
 	
