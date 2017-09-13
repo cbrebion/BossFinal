@@ -47,4 +47,13 @@ public class AdminHibernateDAO implements IAdminDAO {
 		em.remove(em.merge(admin));
 	}
 
+	@Override
+	public Admin findByUsername(String pseudo) {
+		try {
+			return (Admin) em.createQuery("FROM Admin a WHERE a.pseudo = '" + pseudo + "'").getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+
 }

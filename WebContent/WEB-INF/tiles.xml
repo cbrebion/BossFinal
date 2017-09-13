@@ -73,8 +73,14 @@
 
 	<!-- Configuration de la vue "liste des propositions" -->
 	<definition name="affichageProposition" extends="base.definition">
-		<put-attribute name="title" value="Affichage des Test" />
+		<put-attribute name="title" value="Affichage des propositions" />
 		<put-attribute name="contenu" value="/WEB-INF/views/jsp/proposition/affichageProposition.jsp" />
+	</definition>
+	
+	<!-- Configuration de la vue "modification d'une propositions" -->
+	<definition name="modifProposition" extends="base.definition">
+		<put-attribute name="title" value="Modification de la proposition" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/proposition/modifProposition.jsp" />
 	</definition>
 	
 	<!-- Configuration de la vue "liste des questions" -->
