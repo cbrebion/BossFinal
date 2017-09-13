@@ -19,8 +19,10 @@
 <body>
 	<!-- Insertion du menu -->
 	<tiles:insertAttribute name="navigation" />
-	<!-- Insertion du contenu des JSP -->
-	<tiles:insertAttribute name="contenu" />
+	<div class="container">
+		<!-- Insertion du contenu des JSP -->
+		<tiles:insertAttribute name="contenu" />
+	</div>
 	
 	<!-- Code Javascript -->
 	<script src="/BossFinal/Resources/jquery-3.2.1.min.js"></script>
