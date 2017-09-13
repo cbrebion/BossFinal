@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="proposition")
 public class Proposition implements Serializable {
@@ -29,6 +31,7 @@ public class Proposition implements Serializable {
 	
 	@Column(name="PRO_CORRECT")
 	@NotNull
+	@JsonIgnore
 	private boolean correct;
 	
 	@NotNull
