@@ -67,8 +67,14 @@
 	
 	<!-- Configuration de la vue "modification d'une question" -->
 	<definition name="modifierQuestion" extends="base.definition">
-		<put-attribute name="title" value="Questions" />
+		<put-attribute name="title" value="Modification d'une question" />
 		<put-attribute name="contenu" value="/WEB-INF/views/jsp/question/modifierQuestion.jsp" />
+	</definition>
+	
+	<!-- Configuration de la vue "modification d'une question" -->
+	<definition name="ajouterQuestion" extends="base.definition">
+		<put-attribute name="title" value="Ajout d'une question" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/question/ajouterQuestion.jsp" />
 	</definition>
 	
 </tiles-definitions>
