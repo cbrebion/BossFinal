@@ -22,6 +22,7 @@ import com.sopra.model.Questionnaire;
 public class QuestionController {
 	private static final String ATT_QUESTION			= "question";
 	private static final String ATT_QUESTIONS			= "questions";
+	private static final String ATT_QUESTIONNAIRE		= "questionnaire";
 	private static final String ATT_ERREUR				= "erreur";
 	
 	@Autowired
@@ -41,12 +42,53 @@ public class QuestionController {
 	public String question(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
 							Model model) {
 		
-		Questionnaire quest = questionnaireHibernateDAO.find(idQuestionnaire);
-		List<Question> questions = quest.getQuestions();
+		Questionnaire questionnaire = questionnaireHibernateDAO.find(idQuestionnaire);
+		List<Question> questions = questionnaire.getQuestions();
 		
+		model.addAttribute(ATT_QUESTIONNAIRE, questionnaire);
 		model.addAttribute(ATT_QUESTIONS, questions);
 		
 		return "affichageQuestions";
+	}
+	
+	
+	/**
+	 * AJOUT QUESTION (GET)
+	 * @param idQuestionnaire
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/{idQuestionnaire}/ajoutQuestion", method = RequestMethod.GET)
+	public String ajoutQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
+								Model model) {
+		
+		Questionnaire questionnaire = questionnaireHibernateDAO.find(idQuestionnaire);
+		
+		model.addAttribute(ATT_QUESTIONNAIRE, questionnaire);
+		
+		return "ajouterQuestion";
+	}
+	
+	
+	
+	/**
+	 * AJOUT QUESTION (POST)
+	 * @param idQuestionnaire
+	 * @param q
+	 * @param result
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/{idQuestionnaire}/ajoutQuestion", method = RequestMethod.POST)
+	public String modifierQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
+			@Valid @ModelAttribute("question") Question q,
+			BindingResult result,
+			Model model) {
+		
+		// TO DO
+		
+		
+		return "redirect:/{idQuestionnaire}/questions";
 	}
 	
 	

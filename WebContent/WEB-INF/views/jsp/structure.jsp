@@ -9,7 +9,7 @@
 	<!--Import materialize.css-->
 	<link rel="stylesheet"
 		href="/BossFinal/Resources/materialize/css/materialize.min.css">
-	<link rel="stylesheet" href="/Tetris/Resources/div.css">
+	<link rel="stylesheet" href="/BossFinal/Resources/style.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 		rel="stylesheet">
 	
