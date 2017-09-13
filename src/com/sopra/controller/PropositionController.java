@@ -23,8 +23,8 @@ public class PropositionController {
 	private IPropositionDAO propositionDAO;
 	@Autowired 
 	private IQuestionDAO questionDAO;
-	
-	
+
+
 	//méthode pour afficher la liste des propositions
 	@RequestMapping(value="/{id}/propositions", method=RequestMethod.GET)
 	public String affichageProposition(@PathVariable Integer id, Model model) {
@@ -33,7 +33,7 @@ public class PropositionController {
 		model.addAttribute("question", question);
 		return "affichageProposition";
 	}
-	
+
 	//ajout d'une proposition 
 	@RequestMapping(value="/{id}/propositions/ajouter", method=RequestMethod.GET)
 	public String afficherAjoutProposition(@PathVariable Integer id, Model model) {
@@ -42,27 +42,47 @@ public class PropositionController {
 		model.addAttribute("question", question);
 		return "ajoutProposition";
 	}
-	
+
 	@RequestMapping(value="/{idQuestion}/propositions/ajouter", method=RequestMethod.POST)
 	public String ajoutProposition(@PathVariable Integer idQuestion, @Valid @ModelAttribute("newProposition") Proposition newProposition, BindingResult result, Model model) {
 		Question question = questionDAO.find(idQuestion);
 		newProposition.setQuestion(question);
-		
+
 		if(result.hasErrors()) {
 			return "ajoutProposition";
 		}
-		
+
 		propositionDAO.save(newProposition);
 		return "redirect:/{idQuestion}/propositions";
 	}
-	
-	
+
+
 	//suppression d'une proposition
 	@RequestMapping(value="/{idQuestion}/propositions/{idProposition}/supprimer", method=RequestMethod.GET)
 	public String suppressionProposition(@PathVariable Integer idQuestion, @PathVariable Integer idProposition) {
 		propositionDAO.delete(propositionDAO.find(idProposition));
 		return "redirect:/{idQuestion}/propositions";
 	}
-	
+
 	//modification d'une proposition 
+	//etape 1 : afficher la proposition à modifier 
+	@RequestMapping(value="/{idQuestion}/propositions/{idProposition}/modifier", method=RequestMethod.GET)
+	public String modificationProposition(@PathVariable Integer idQuestion, @PathVariable Integer idProposition, Model model) {
+		Proposition proposition = propositionDAO.find(idProposition);
+		model.addAttribute("propositionAModifier", proposition);
+		return "modifProposition";
+	}
+
+	//etape 2 : enregistrer les modifications 
+	@RequestMapping(value="/{idQuestion}/propositions/{id}/modifier", method=RequestMethod.POST)
+	public String modificationProposition(@PathVariable Integer idQuestion, @PathVariable Integer id, @Valid @ModelAttribute("propositionAModifier") Proposition propositionAModifier, BindingResult result, Model model) {
+		Question question = questionDAO.find(idQuestion);
+		propositionAModifier.setQuestion(question);
+		if(result.hasErrors()) {
+			return "modifProposition";
+		}
+		
+		propositionDAO.save(propositionAModifier);
+		return "redirect:/{idQuestion}/propositions";
+	}
 }
