@@ -38,13 +38,13 @@
 	<!-- Configuration de la vue "liste des questionnaires d'un test" -->
 	<definition name="affichageQuestionnairesTest" extends="base.definition">
 		<put-attribute name="title" value="Affichage des Questionnaires du Test" />
-		<put-attribute name="contenu" value="/WEB-INF/views/jsp/test/affichageQuestionnairesTest.jsp" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/questionnaire/affichageQuestionnairesTest.jsp" />
 	</definition>
 
 	<!-- Configuration de la vue "ajout d'un questionnaire" -->
 	<definition name="ajoutQuestionnaire" extends="base.definition">
 		<put-attribute name="title" value="Ajout d'un Questionnaire" />
-		<put-attribute name="contenu" value="/WEB-INF/views/jsp/test/ajoutQuestionnaire.jsp" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/questionnaire/ajoutQuestionnaire.jsp" />
 	</definition>
 
 	<!-- Configuration de la vue "creation d'une proposition" -->
