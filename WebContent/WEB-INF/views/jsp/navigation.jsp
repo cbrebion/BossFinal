@@ -4,7 +4,7 @@
 
 <nav class="blue darken-3" role="navigation">
 	<div class="nav-wrapper container">
-		<a id="logo-container" href="/BossFinal/home" class="brand-logo">BossFinal</a>
+		<a id="logo-container" href="/BossFinal/home" class="brand-logo">Tests d'aptitude</a>
 		
 		<!-- Lien de déconnexion si connecté -->
 		<c:if test="${ !empty sessionScope.admin }">
@@ -16,14 +16,14 @@
 		<!-- Lien du menu, uniquement si connecté en tant qu'admin -->
 		<%-- <c:if test="${ !empty sessionScope.admin }"> --%>
 			<ul class="right hide-on-med-and-down">
-				<li <c:if test='${ uri.equals("/tetrimino/listeTetriminos") }'>class="active"</c:if>>
-					<a href="/tetrimino/listeTetriminos">Liste tetri</a>
+				<li <c:if test='${ uri.equals("/BossFinal/affichageCandidats") }'>class="active"</c:if>>
+					<a href="/BossFinal/affichageCandidats">Liste candidats</a>
 				</li>
-				<li <c:if test='${ uri.equals("/tetrimino/listeParties") }'>class="active"</c:if>>
-					<a href="/tetrimino/listeParties">Liste parties</a>
+				<li <c:if test='${ uri.equals("/BossFinal/affichageTests") }'>class="active"</c:if>>
+					<a href="/BossFinal/affichageTests">Liste Tests</a>
 				</li>
-				<li <c:if test='${ uri.equals("/tetrimino/listeJoueurs") }'>class="active"</c:if>>
-					<a href="/tetrimino/listeJoueurs">Liste joueurs</a>
+				<li <c:if test='${ uri.equals("/BossFinal/affichageQuestionnaires") }'>class="active"</c:if>>
+					<a href="/BossFinal/questionnaires">Liste Questionnaires</a>
 				</li>
 			</ul>
 		<%-- </c:if> --%>

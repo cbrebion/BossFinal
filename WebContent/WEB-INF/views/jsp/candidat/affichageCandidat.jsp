@@ -32,6 +32,6 @@
 
 <div>
 		
-		 <a href="/BossFinal/candidat/add" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+		 <a href="/BossFinal/candidat/add" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add</i></a>
 		
 </div>
