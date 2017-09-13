@@ -1,6 +1,5 @@
 package com.sopra.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sopra.dao.IQuestionDAO;
 import com.sopra.dao.IQuestionnaireDAO;
-import com.sopra.model.Proposition;
 import com.sopra.model.Question;
 import com.sopra.model.Questionnaire;
 
