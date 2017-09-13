@@ -1,6 +1,7 @@
 package com.sopra.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 public class CandidatTest implements Serializable {
 
@@ -29,6 +32,9 @@ public class CandidatTest implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="CDT_CANDIDAT")
 	protected Candidat candidat;
+	
+	@OneToMany(mappedBy="candidatTest")
+	protected List<Reponse> reponses;
 	
 	
 	
@@ -64,5 +70,13 @@ public class CandidatTest implements Serializable {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
+	public List<Reponse> getReponses() {
+		return reponses;
+	}
+
+	public void setReponses(List<Reponse> reponses) {
+		this.reponses = reponses;
+	}
+
 }
