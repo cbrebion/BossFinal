@@ -16,9 +16,17 @@
 		<tr>
 		<td>${ proposition.libelle }</td>
 		<td><c:if test="${ proposition.correct ==true }">Bonne réponse</c:if></td>
+		<td><a href="propositions/${proposition.id}/supprimer"
+						class="secondary-content "><i class="material-icons">delete</i></a></td>
+		<td><a href="propositions/${proposition.id}/modifier"
+						class="secondary-content "><i class="material-icons">mode_edit</i></a></td>
 		</c:forEach>
 		</tr>
 		</tbody>
 	</table>
+</div>
+<div class="col s3 offset-s7">
+<a class="waves-effect waves-light btn-large" href="propositions/ajouter" style="width : 400px; margin-top : 150px;">
+<i class="material-icons right">add_circle_outline</i>Ajouter une proposition</a>
 </div>
 </div>

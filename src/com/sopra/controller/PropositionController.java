@@ -1,8 +1,11 @@
 package com.sopra.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,9 +43,26 @@ public class PropositionController {
 		return "ajoutProposition";
 	}
 	
+	@RequestMapping(value="/{idQuestion}/propositions/ajouter", method=RequestMethod.POST)
+	public String ajoutProposition(@PathVariable Integer idQuestion, @Valid @ModelAttribute("newProposition") Proposition newProposition, BindingResult result, Model model) {
+		Question question = questionDAO.find(idQuestion);
+		newProposition.setQuestion(question);
+		
+		if(result.hasErrors()) {
+			return "ajoutProposition";
+		}
+		
+		propositionDAO.save(newProposition);
+		return "redirect:/{idQuestion}/propositions";
+	}
+	
 	
 	//suppression d'une proposition
-	
+	@RequestMapping(value="/{idQuestion}/propositions/{idProposition}/supprimer", method=RequestMethod.GET)
+	public String suppressionProposition(@PathVariable Integer idQuestion, @PathVariable Integer idProposition) {
+		propositionDAO.delete(propositionDAO.find(idProposition));
+		return "redirect:/{idQuestion}/propositions";
+	}
 	
 	//modification d'une proposition 
 }
