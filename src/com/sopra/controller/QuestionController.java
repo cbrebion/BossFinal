@@ -22,6 +22,7 @@ import com.sopra.model.Questionnaire;
 public class QuestionController {
 	private static final String ATT_QUESTION			= "question";
 	private static final String ATT_QUESTIONS			= "questions";
+	private static final String ATT_ERREUR				= "erreur";
 	
 	@Autowired
 	private IQuestionDAO questionHibernateDAO;
@@ -29,6 +30,13 @@ public class QuestionController {
 	@Autowired
 	private IQuestionnaireDAO questionnaireHibernateDAO;
 	
+	
+	/**
+	 * AFFICHAGE DES QUESTIONS D'UN QUESTIONNAIRE
+	 * @param idQuestionnaire
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/{idQuestionnaire}/questions", method = RequestMethod.GET)
 	public String question(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
 							Model model) {
@@ -42,6 +50,13 @@ public class QuestionController {
 	}
 	
 	
+	/**
+	 * MODIFICATION D'UNE QUESTION (GET)
+	 * @param idQuestionnaire
+	 * @param idQuestion
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/{idQuestionnaire}/modifier/{idQuestion}", method = RequestMethod.GET)
 	public String modifierQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
 									@PathVariable(value="idQuestion", required=true) int idQuestion,
@@ -50,19 +65,52 @@ public class QuestionController {
 		Question question = questionHibernateDAO.find(idQuestion);
 		model.addAttribute(ATT_QUESTION, question);
 		
-		return idQuestionnaire + "/modifierQuestion/" + idQuestion;
+		return idQuestionnaire + "/modifier/" + idQuestion;
 	}
 	
 	
+	
+	/**
+	 * MODIFICATION D'UNE QUESTION (POST)
+	 * @param idQuestionnaire
+	 * @param idQuestion
+	 * @param q
+	 * @param result
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/{idQuestionnaire}/modifier/{idQuestion}", method = RequestMethod.POST)
 	public String modifierQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
 									@PathVariable(value="idQuestion", required=true) int idQuestion,
 									@Valid @ModelAttribute("question") Question q,
 									BindingResult result,
 									Model model) {
+		Question question = questionHibernateDAO.find(idQuestion);
+		
+		if (result.hasErrors()) {
+			model.addAttribute(ATT_QUESTION, question);
+			model.addAttribute(ATT_ERREUR, "Erreur dans la modification de la question");
+			
+			return idQuestionnaire + "/modifier/" + idQuestion;
+		}
+		
+		question.setLibelle(q.getLibelle());
+		
+		question = questionHibernateDAO.save(question);
 		
 		return "redirect:/" + idQuestionnaire + "/questions";
 	}
 	
+	
+	@RequestMapping(value="/{idQuestionnaire}/supprimer/{idQuestion}", method = RequestMethod.GET)
+	public String supprimerQuestion(@PathVariable(value="idQuestionnaire", required=true) int idQuestionnaire,
+									@PathVariable(value="idQuestion", required=true) int idQuestion,
+									Model model) {
+		Question question = questionHibernateDAO.find(idQuestion);
+		
+		questionHibernateDAO.delete(question);
+		
+		return "redirect:/" + idQuestionnaire + "/questions";
+	}
 
 }
