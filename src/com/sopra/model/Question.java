@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name="question")
 public class Question implements Serializable{
@@ -32,6 +34,7 @@ public class Question implements Serializable{
 	
 	@Column(name="QUE_LIBELLE")
 	@NotNull
+	@NotEmpty(message="Veuillez renseigner un libellé")
 	private String libelle;
 
 	@Column(name="QUE_PROPOSITIONS")
