@@ -29,7 +29,6 @@ public class Question implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="QUE_QUESTIONNAIRE")
-	@NotNull
 	private Questionnaire questionnaire;
 	
 	@Column(name="QUE_LIBELLE")
@@ -39,7 +38,6 @@ public class Question implements Serializable{
 
 	@Column(name="QUE_PROPOSITIONS")
 	@OneToMany(mappedBy="question")
-	@NotNull
 	private List<Proposition> propositions;
 
 	public int getId() {

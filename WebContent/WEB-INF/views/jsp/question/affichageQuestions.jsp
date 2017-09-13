@@ -14,6 +14,6 @@
 		</c:forEach>
 	</ul>
 	<p>
-		<a class="waves-effect waves-light btn-large blue darken-3" href='/<c:out value="${questionnaire.id}" />/ajoutQuestion'><i class="material-icons left">add</i>Ajouter une question</a>
+		<a class="waves-effect waves-light btn-large blue darken-3" href='ajoutQuestion'><i class="material-icons left">add</i>Ajouter une question</a>
 	</p>
 </div>
