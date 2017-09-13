@@ -21,19 +21,19 @@ public class Test implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="TES_ID")
-	private Integer id;
+	protected Integer id;
 	
 	@Column(name="TES_NIVEAU")
-	private String niveau;
+	protected String niveau;
 	
 	@Column(name="TES_BRANCHE")
-	private String branche;
+	protected String branche;
 	
 	@ManyToMany(mappedBy="tests")
-	private List<Questionnaire> questionnaires;
+	protected List<Questionnaire> questionnaires;
 	
 	@OneToMany(mappedBy="test")
-	private List<CandidatTest> candidatTests;
+	protected List<CandidatTest> candidatTests;
 	
 	
 	//getters and setters

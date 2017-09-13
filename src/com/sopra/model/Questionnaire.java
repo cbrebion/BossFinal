@@ -16,13 +16,13 @@ public class Questionnaire implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="QNR_ID")
-	private Integer id;
+	protected Integer id;
 	
 	@Column(name="QNR_NOM")
-	private String nom;
+	protected String nom;
 	
 	@OneToMany(mappedBy="questionnaire")
-	private List<Question> questions;
+	protected List<Question> questions;
 
 	//getters and setters
 	/**
