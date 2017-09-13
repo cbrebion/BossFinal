@@ -6,13 +6,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
+	<!--Import materialize.css-->
+	<link rel="stylesheet"
+		href="/BossFinal/Resources/materialize/css/materialize.min.css">
+	<link rel="stylesheet" href="/Tetris/Resources/div.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 		rel="stylesheet">
-	<link href="/tetrimino/css/materialize.min.css" type="text/css" rel="stylesheet"
-		media="screen,projection" />
-	
-	<link href="/tetrimino/css/style.css" type="text/css" rel="stylesheet"
-		media="screen,projection" />
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><tiles:insertAttribute name="title" /></title>

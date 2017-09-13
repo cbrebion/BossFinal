@@ -22,8 +22,8 @@ public class PropositionController {
 	
 	//méthode pour afficher la liste des propositions
 	@RequestMapping(value="/{id}/props", method=RequestMethod.GET)
-	public String affichageProposition(@PathVariable Integer idQuestion, Model model) {
-		Question question = questionDAO.find(idQuestion);
+	public String affichageProposition(@PathVariable Integer id, Model model) {
+		Question question = questionDAO.find(id);
 		model.addAttribute("listePropositions", question.getPropositions());
 		return "affichageProposition";
 	}

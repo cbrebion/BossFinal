@@ -13,8 +13,8 @@
 		<tbody>
 		<c:forEach items="${listePropositions}" var="proposition">
 		<tr>
-		<td>${proposition.libelle}</td>
-		<td>${ proposition.correct }</td>
+		<td>${ proposition.libelle }</td>
+		<td><c:if test="${ proposition.correct ==true }">Bonne réponse</c:if></td>
 		</c:forEach>
 		</tr>
 		</tbody>
