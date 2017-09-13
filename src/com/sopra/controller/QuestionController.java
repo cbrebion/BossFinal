@@ -65,7 +65,7 @@ public class QuestionController {
 		Question question = questionHibernateDAO.find(idQuestion);
 		model.addAttribute(ATT_QUESTION, question);
 		
-		return idQuestionnaire + "/modifier/" + idQuestion;
+		return "modifierQuestion";
 	}
 	
 	
@@ -91,7 +91,7 @@ public class QuestionController {
 			model.addAttribute(ATT_QUESTION, question);
 			model.addAttribute(ATT_ERREUR, "Erreur dans la modification de la question");
 			
-			return idQuestionnaire + "/modifier/" + idQuestion;
+			return "modifierQuestion";
 		}
 		
 		question.setLibelle(q.getLibelle());
@@ -111,7 +111,7 @@ public class QuestionController {
 		
 		questionHibernateDAO.delete(question);
 		
-		return "redirect:/" + idQuestionnaire + "/questions";
+		return "redirect:/{idQuestionnaire}/questions";
 	}
 
 }
