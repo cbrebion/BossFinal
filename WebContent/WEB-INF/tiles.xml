@@ -20,12 +20,12 @@
 	<!-- Configuration de la vue "creation d'un test" -->
 	<definition name="creationTest" extends="base.definition">
 		<put-attribute name="title" value="Creation d'un test" />
-		<put-attribute name="contenu" value="/WEB-INF/views/jsp/test.jsp" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/test/test.jsp" />
 	</definition>
 
 <!-- Configuration de la vue "liste des tests" -->
 	<definition name="affichageTest" extends="base.definition">
 		<put-attribute name="title" value="Affichage des Test" />
-		<put-attribute name="contenu" value="/WEB-INF/views/jsp/affichageTest.jsp" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/test/affichageTest.jsp" />
 	</definition>
 </tiles-definitions>
