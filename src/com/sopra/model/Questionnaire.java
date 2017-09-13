@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,6 +28,9 @@ public class Questionnaire implements Serializable {
 	
 	@OneToMany(mappedBy="questionnaire")
 	protected List<Question> questions;
+	
+	@ManyToMany
+	protected List<Test> tests;
 
 	//getters and setters
 	/**
@@ -69,6 +73,20 @@ public class Questionnaire implements Serializable {
 	 */
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
+	}
+
+	/**
+	 * @return the tests
+	 */
+	public List<Test> getTests() {
+		return tests;
+	}
+
+	/**
+	 * @param tests the tests to set
+	 */
+	public void setTests(List<Test> tests) {
+		this.tests = tests;
 	}
 	
 	
