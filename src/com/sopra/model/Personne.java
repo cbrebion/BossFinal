@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="personne")
 public class Personne implements Serializable {
-	
-	
+	private static final long serialVersionUID = 1L;
+
 	// Attributs
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
