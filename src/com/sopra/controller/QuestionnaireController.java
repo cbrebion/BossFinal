@@ -98,9 +98,11 @@ public class QuestionnaireController {
 												) {
 			Questionnaire questionnaire = questionnaireDAO.find(idQ);
 			Test test = testDAO.find(idT);
-			test.getQuestionnaires().remove(questionnaire);
+			questionnaire.getTests().remove(test);
 			
-			return "redirect:/questionnaires";
+			questionnaireDAO.save(questionnaire);
+			
+			return "redirect:/test-{idT}/questionnaires";
 		}
 		
 		
