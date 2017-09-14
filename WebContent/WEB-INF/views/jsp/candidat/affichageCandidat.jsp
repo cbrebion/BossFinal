@@ -16,10 +16,13 @@
 
 		<c:forEach items="${affichageCandidats}" var="item">
 			<tr>
-				<td>${ item.nom }
+				<td>${item.nom}
 				</td>
 
-				<td>${item.prenom }
+				<td>${item.prenom}
+				</td>
+				<td><a href="${item.id}/ajouterTest"
+						class="secondary-content "><i class="material-icons">add</i></a>
 				</td>
 			</tr>
 

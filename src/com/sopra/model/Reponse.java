@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name="reponse")
@@ -22,12 +23,12 @@ public class Reponse {
 	@Column(name = "REP_ID")
 	protected Integer id;
 
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="REP_PROPOSITION")
 	protected Proposition proposition;
 	
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="REP_CANDIDATTEST")
 	protected CandidatTest candidatTest;
@@ -51,10 +52,12 @@ public class Reponse {
 		this.proposition = proposition;
 	}
 
+	@JsonIgnore
 	public CandidatTest getCandidatTest() {
 		return candidatTest;
 	}
 
+	@JsonProperty("candidatTest")
 	public void setCandidatTest(CandidatTest candidatTest) {
 		this.candidatTest = candidatTest;
 	}
