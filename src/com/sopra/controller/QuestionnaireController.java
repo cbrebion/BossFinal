@@ -1,5 +1,7 @@
 package com.sopra.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,16 +66,28 @@ public class QuestionnaireController {
 		
 	// ASSOCIATION & DISSOCIATION
 		// Page d'association de questionnaire et de test
-		@RequestMapping(value="test-{id}/associer/{idQ}", method=RequestMethod.GET)
+		@RequestMapping(value="test-{idT}/associer/{idQ}", method=RequestMethod.GET)
 		public String associerQuestionnaireTest(@PathVariable(value="idT", required=true) Integer idT,
 												@PathVariable(value="idQ", required=true) Integer idQ,
 												Model model
 												) {
 			Questionnaire questionnaire = questionnaireDAO.find(idQ);
 			Test test = testDAO.find(idT);
-			test.getQuestionnaires().add(questionnaire);
 			
-			return "redirect:/test-{id}/questionnaires";
+			/*
+			List<Questionnaire> questionnairesTest = test.getQuestionnaires();
+			questionnairesTest.add(questionnaire);
+			test.setQuestionnaires(questionnairesTest);
+			*/
+			
+			
+			questionnaire.getTests().add(test);
+			
+			
+			//testDAO.save(test);
+			questionnaireDAO.save(questionnaire);
+			
+			return "redirect:/test-{idT}/questionnaires";
 		}
 		
 		// Page de dissociation de questionnaire et de test

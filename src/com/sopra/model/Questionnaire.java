@@ -74,6 +74,14 @@ public class Questionnaire implements Serializable {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
+
+	public List<Test> getTests() {
+		return tests;
+	}
+
+	public void setTests(List<Test> tests) {
+		this.tests = tests;
+	}
 	
 	
 	
