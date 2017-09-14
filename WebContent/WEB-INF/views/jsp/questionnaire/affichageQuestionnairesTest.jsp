@@ -3,8 +3,6 @@
 
 <div>
 
-	<a href="ajoutQuestionnaire">Ajouter un questionnaire au test N°${ Test.id }</a>
-
 	<table>
 		<thead>
 			<tr>
