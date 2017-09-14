@@ -6,3 +6,12 @@ app.factory('connexionResource', ['$resource', 'API_URL', function($resource, AP
 
   });
 }]);
+
+// Service pour connaitre le candidatTest (pour avoir le code)
+app.service("candidatTestService", function() {
+  this.candidatTest = {};
+
+  this.create = function(candidatTest) {
+    this.candidatTest = candidatTest;
+  };
+});
