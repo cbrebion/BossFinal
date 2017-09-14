@@ -1,0 +1,23 @@
+<html>
+  <head>
+  </head>
+
+<body>
+
+    <table>
+      <thead class="head">
+        <td>Branche</td>
+        <td>Niveau</td>
+      </thead>
+
+      <tbody class="body">
+        <tr ng-repeat="test in tests | orderBy: '-test'">
+          <td>{{test.branche}}</td>
+          <td>{{test.niveau}}</td>
+      </tbody>
+
+    </table>
+
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 var app = angular.module("tpAngular");
 
 
-app.controller("connexionController", function($scope, Page, userService, logInResource, $location) {
+app.controller("connexionController", function($scope, Page, userService, connexionResource, $location) {
 	Page.setTitle("Se connecter");
 
 	$scope.nom ="";
