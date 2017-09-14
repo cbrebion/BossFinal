@@ -1,30 +1,29 @@
 package com.sopra.restcontroller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sopra.dao.ITestDAO;
-import com.sopra.model.Test;
+import com.sopra.dao.ICandidatTestDAO;
+import com.sopra.model.CandidatTest;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping(value="/test")
-public class TestRestController {
+@RequestMapping(value="/candidattest")
+public class CandidatTestRestController {
 	@Autowired
-	private ITestDAO testHibernateDAO;
+	private ICandidatTestDAO candidatTestHibernateDAO;
 	
-	@RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="", method=RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<List<Test>> getAll() {
-		return new ResponseEntity<List<Test>>(this.testHibernateDAO.findAll(), HttpStatus.OK);
+	public ResponseEntity<CandidatTest> getByCode(@RequestParam(value="code", required=true) String code) {
+		return new ResponseEntity<CandidatTest>(this.candidatTestHibernateDAO.findByCode(code), HttpStatus.OK);
 	}
 
 }

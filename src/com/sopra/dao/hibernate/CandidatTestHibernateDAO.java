@@ -47,4 +47,13 @@ public class CandidatTestHibernateDAO implements ICandidatTestDAO {
 		em.remove(em.merge(candidatTest));
 	}
 
+	@Override
+	public CandidatTest findByCode(String code) {
+		try {
+			return (CandidatTest)em.createQuery("FROM CandidatTest c WHERE c.code = '" + code + "'").getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+
 }
