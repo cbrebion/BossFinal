@@ -1,7 +1,7 @@
 var app = angular.module("tpAngular");
 
 
-app.controller("testController", function($scope, Page, testResource, reponseFactory, reponseResource, candidatTestService) {
+app.controller("testController", function($scope, $location, Page, testResource, reponseFactory, reponseResource, candidatTestService) {
 
   Page.setTitle("Test");
 
@@ -41,7 +41,7 @@ app.controller("testController", function($scope, Page, testResource, reponseFac
 
       // Passage à la question suivante
       $scope.index++;
-      if ($scope.index == questions.length) {
+      if ($scope.index == questions.length - 1) {
         $scope.showFinish = true;
         $scope.showNext = false;
       }

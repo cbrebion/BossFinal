@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sopra.dao.IPropositionDAO;
 import com.sopra.dao.IReponseDAO;
 import com.sopra.model.Proposition;
 import com.sopra.model.Reponse;
@@ -23,6 +24,7 @@ import com.sopra.model.Reponse;
 public class ReponseRestController {
 
 	@Autowired private IReponseDAO reponseHibernateDAO;
+	@Autowired private IPropositionDAO propositionHibernateDAO;
 	@Autowired private SimpMessageSendingOperations operationsDEnvoi;
 
 	
@@ -37,15 +39,13 @@ public class ReponseRestController {
 	
 			// On affecte la phrase de statut bonne/mauvaise réponse
 			String statut;
-			if(reponse.getProposition().isCorrect()) {statut = "Bonne réponse";} else {statut = "Mauvaise réponse";}
+			Proposition p = propositionHibernateDAO.find(reponse.getProposition().getId());
+			if(p.isCorrect()) {statut = "Bonne réponse";} else {statut = "Mauvaise réponse";}
 			
 			// On crée l'intitulé de type  "question - réponse - statut"
-			Reponse reponseWS = new Reponse();
-				Proposition propositionWS = reponseWS.getProposition();
-				String aDemande = propositionWS.getQuestion().getLibelle();
-				String aRepondu = propositionWS.getLibelle();
-				String intituleReponse = aDemande+" - "+aRepondu+" - "+statut;
-				reponseWS.getProposition().getLibelle();
+			String aDemande = p.getQuestion().getLibelle();
+			String aRepondu = p.getLibelle();
+			String intituleReponse = aDemande+" - "+aRepondu+" - "+statut;
 			
 			// On envoie l'intitulé dans le canal relatif au candidat
 			this.operationsDEnvoi.convertAndSend(String.format("/%s", candidatId), intituleReponse);
