@@ -48,5 +48,7 @@
 
 	<context:annotation-config />
 	
-	<context:component-scan base-package="com.sopra.dao.hibernate" />
+	<aop:aspectj-autoproxy />
+	
+	<context:component-scan base-package="com.sopra.dao.hibernate, com.sopra.aspect" />
 </beans>
