@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name="reponse")
 public class Reponse {
@@ -22,12 +20,12 @@ public class Reponse {
 	@Column(name = "REP_ID")
 	protected Integer id;
 
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="REP_PROPOSITION")
 	protected Proposition proposition;
 	
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="REP_CANDIDATTEST")
 	protected CandidatTest candidatTest;
