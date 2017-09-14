@@ -8,7 +8,9 @@ app.controller("homeController", function($scope, Page, connexionResource, candi
 
 	// Clic sur connexion
 	$scope.connexion = function() {
+		console.log("DANS CLIC");
 		$scope.candidatTest = connexionResource.logIn($scope.code, function() {
+			console.log("DANS LOGIN");
 			candidatTestService.create($scope.candidatTest);
 			$location.path('/test');
 		});
