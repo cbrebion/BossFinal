@@ -1,9 +1,11 @@
 var app = angular.module("tpAngular");
 
 
-app.controller("testController", function($scope, Page, testResource, candidatTestService) {
+app.controller("testController", function($scope, Page, testResource, reponseFactory, reponseResource, candidatTestService) {
 
-  Page.setTitle("Liste des tests");
+  Page.setTitle("Test");
+
+  $scope.proposition = {};
 
   candidatTestService.candidatTest.$promise.then(function() {
     $scope.candidatTest = candidatTestService.candidatTest;
@@ -24,11 +26,18 @@ app.controller("testController", function($scope, Page, testResource, candidatTe
     $scope.question = questions[$scope.index];
 
     $scope.suivant = function() {
+      console.log($scope.proposition);
       // Sauvegarde de la réponse
-      // TO DO
+      var reponse = {};
+      reponse = reponseFactory.create($scope.proposition, $scope.candidatTest);
+      console.log(reponse);
+      reponseResource.add(reponse, function() {
+        $scope.proposition = {};
+      });
 
+
+      // Passage à la question suivante
       $scope.index++;
-
       $scope.question = questions[$scope.index];
     }
   });
