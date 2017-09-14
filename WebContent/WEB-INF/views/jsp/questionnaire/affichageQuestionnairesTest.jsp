@@ -10,8 +10,9 @@
 			<tr>
 				<th style="text-align: center;">ID</th>
 				<th style="text-align: center;">Nom</th>
-				<th style="text-align: center;">Ajouter</th>
 				<th style="text-align: center;">Nombre de tests associés</th>
+				<th style="text-align: center;">Afficher questions</th>
+				<th style="text-align: center;">Ajouter une question</th>
 				<th style="text-align: center;">Action</th>
 			</tr>
 		</thead>
@@ -22,6 +23,8 @@
 					<td style="text-align: center;">${Questionnaire.id}</td>
 					<td style="text-align: center;">${Questionnaire.nom }</td>
 					<td style="text-align: center;">${Questionnaire.tests.size() }</td>
+					<td style="text-align: center;"><a href="/BossFinal/${Questionnaire.id}/questions">Afficher questions</a></td>
+					
 					<td style="text-align: center;" ><a href="/BossFinal/${Questionnaire.id}/ajoutQuestion" }>Ajouter question</a></td>
 					
 					<c:if test="${Questionnaire.tests.contains(Test) }">
