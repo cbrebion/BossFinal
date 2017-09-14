@@ -10,7 +10,7 @@ app.config(function($routeProvider) {
 		.when("/test", {
 			templateUrl: "./app/components/test/test.html",
 			controller: "testController"
-		});
+		})
 		.when("/ws-pointdacces", {
 			templateUrl: "./app/components/websocket/websocket.html",
 			controller: "socketController"
