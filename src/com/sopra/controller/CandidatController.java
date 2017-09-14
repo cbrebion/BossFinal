@@ -93,12 +93,7 @@ public class CandidatController {
 		//creation d'un candidat test auquel on set le candidat récupéré ci dessus
 		CandidatTest candidatTest = new CandidatTest();
 		
-		
-		//création du code aléatoire et unique sur 6 chiffres
-		String code = UUID.randomUUID().toString().substring(0, 6);
-
 		candidatTest.setCandidat(candidat);
-		candidatTest.setCode(code);
 		candidatTest.setTest(test);
 		
 		//sauvegarde du candidat test en Bdd
