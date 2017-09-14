@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name="reponse")
 public class Reponse {
@@ -49,10 +52,12 @@ public class Reponse {
 		this.proposition = proposition;
 	}
 
+	@JsonIgnore
 	public CandidatTest getCandidatTest() {
 		return candidatTest;
 	}
 
+	@JsonProperty("candidatTest")
 	public void setCandidatTest(CandidatTest candidatTest) {
 		this.candidatTest = candidatTest;
 	}

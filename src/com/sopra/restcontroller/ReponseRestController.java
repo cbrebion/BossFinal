@@ -29,7 +29,7 @@ public class ReponseRestController {
 		System.out.println(reponse.toString());
 		System.out.println(reponse.getCandidatTest());
 		System.out.println(reponse.getProposition());
-		//reponse = reponseHibernateDAO.save(reponse);
+		reponse = reponseHibernateDAO.save(reponse);
 		return new ResponseEntity<Reponse>(reponse, HttpStatus.OK);
 	}
 	
