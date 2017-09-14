@@ -1,6 +1,7 @@
 package com.sopra.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,19 +67,23 @@ public class CandidatController {
 	}
 	
 	//récupération du candidat pour créer un candidat Test 
-	@RequestMapping(value="idCandidat/ajouterTest", method=RequestMethod.GET)
+	@RequestMapping(value="{idCandidat}/ajouterTest", method=RequestMethod.GET)
 	public String creationCandidatTest(@PathVariable Integer idCandidat, Model model) {
+		
 		//récupération du candidat
 		Candidat candidat = candidatDAO.find(idCandidat);
+		String code = UUID.randomUUID().toString().substring(0, 6);
 		//creation d'un candidat test auquel on set le candidat récupéré ci dessus
 		CandidatTest candidatTest = new CandidatTest();
 		candidatTest.setCandidat(candidat);
+		candidatTest.setCode(code);
 		//on met le candidatTest en model attribut
 		model.addAttribute("candidatTestToCreate", candidatTest);
 		
 		//on met aussi en modelAttribut la liste de Test disponible
 		List<Test> tests = testDAO.findAll();
 		model.addAttribute("listeTests", tests);
+		
 		return "ajoutCandidatTest";
 	}
 	
