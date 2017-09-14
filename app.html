@@ -1,43 +1,46 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		
+
 		<!-- Materialize -->
 		<link rel="stylesheet" href="./bower_components/materialize/dist/css/materialize.css" />
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="./assets/css/ghpages-materialize.css" />
 	</head>
-	
-	
+
+
 	<body ng-app="tpAngular">
 		<div ng-include="'./app/shared/header/header.html'"></div>
 		<main>
 			<div class="container" ng-view></div>
 		</main>
-		
-		
-		
+
+
+
 		<!-- Materialize -->
 		<script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
 		<script type="text/javascript" src="./bower_components/materialize/dist/js/materialize.js"></script>
-		
+
 		<!-- AngularJS -->
 		<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
 		<script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
 		<script type="text/javascript" src="./bower_components/angular-resource/angular-resource.js"></script>
-		
-		
+
+
 		<!-- Application -->
 		<script type="text/javascript" src="./app/app.js"></script>
 		<script type="text/javascript" src="./app/routes.js"></script>
 		<script type="text/javascript" src="./app/shared/factories/page.js"></script>
 		<script type="text/javascript" src="./app/shared/header/controller.js"></script>
-		
-		
+
+
 		<!-- Composant Home -->
 		<script type="text/javascript" src="./app/components/home/controller.js"></script>
-		
-		
+
+		<!-- Composant Test -->
+		<script type="text/javascript" src="./app/components/test/controller.js"></script>
+		<script type="text/javascript" src="./app/components/test/resource.js"></script>
+
 		<!-- Autres composants .... -->
 	</body>
 </html>
