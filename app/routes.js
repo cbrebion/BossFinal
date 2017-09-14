@@ -8,7 +8,11 @@ app.config(function($routeProvider) {
 			controller: "homeController"
 		})
 		.when("/test", {
-		templateUrl: "./app/components/test/test.html",
-		controller: "testController"
+			templateUrl: "./app/components/test/test.html",
+			controller: "testController"
+		});
+		.when("/ws-pointdacces", {
+			templateUrl: "./app/components/websocket/websocket.html",
+			controller: "socketController"
 		});
 });

@@ -15,5 +15,4 @@ public class DeconnexionController {
 		session.invalidate();
 		return "redirect:/home";
 	}
-
 }

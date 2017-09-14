@@ -12,7 +12,12 @@
 
 
 			<p class="col s4 offset-s4">
-				<input id="correct" type="checkbox" name="correct" class="filled-in" />
+			<c:if test="${propositionAModifier.correct}">
+				<input id="correct" type="checkbox" name="correct" class="filled-in" checked/>
+				</c:if>
+				<c:if test="${!propositionAModifier.correct}">
+				<input id="correct" type="checkbox" name="correct" class="filled-in"/>
+				</c:if>
 				<label for="correct">Réponse vraie</label>
 				<form:errors path="correct" style="color :#d32f2f "></form:errors>
 			<p>
