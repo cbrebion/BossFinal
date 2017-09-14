@@ -26,4 +26,9 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<div>
+		
+		 <a href="/BossFinal/ajoutQuestionnaire" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add</i></a>
+		
+</div>
 </div>
