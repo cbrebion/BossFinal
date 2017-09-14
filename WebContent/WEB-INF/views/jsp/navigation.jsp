@@ -14,7 +14,7 @@
 		</c:if>
 		
 		<!-- Lien du menu, uniquement si connecté en tant qu'admin -->
-		<%-- <c:if test="${ !empty sessionScope.admin }"> --%>
+		<c:if test="${ !empty sessionScope.admin }">
 			<ul class="right hide-on-med-and-down">
 				<li <c:if test='${ uri.equals("/BossFinal/affichageCandidats") }'>class="active"</c:if>>
 					<a href="/BossFinal/affichageCandidats">Liste candidats</a>
@@ -26,6 +26,6 @@
 					<a href="/BossFinal/questionnaires">Liste Questionnaires</a>
 				</li>
 			</ul>
-		<%-- </c:if> --%>
+		</c:if>
 	</div>
 </nav>
