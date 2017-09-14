@@ -1,19 +1,16 @@
 var app = angular.module("tpAngular");
 
 
-app.controller("connexionController", function($scope, Page, userService, connexionResource, $location) {
+app.controller("connexionController", function($scope, Page, connexionResource, $location, candidatTestService) {
 	Page.setTitle("Se connecter");
 
-	$scope.nom ="";
-	$scope.prenom ="";
-  $scope.code ="";
+	$scope.candidatTest = {};
 
-		$scope.connexion = function() {
-				var candidat = {nom: this.nom, prenom: this.prenom, code: this.code};
-
-				userService.user = logInResource.logIn(candidat);
-
-				$location.path("accueil");
-
-		}
+	// Clic sur connexion
+	$scope.connexion = function() {
+		$scope.candidatTest = connexionResource.logIn($scope.code, function() {
+			candidatTestService.create($scope.candidatTest);
+			$location.path('/test');
+		});
+	};
 });
