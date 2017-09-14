@@ -55,7 +55,7 @@
 	</bean>
 
 	<websocket:message-broker application-destination-prefix="/">
-		<websocket:stomp-endpoint path="/ws-pushing-board">
+		<websocket:stomp-endpoint path="/ws-pointdacces">
 			<websocket:sockjs />
 		</websocket:stomp-endpoint>
 		
