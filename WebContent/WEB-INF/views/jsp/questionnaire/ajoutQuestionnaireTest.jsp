@@ -1,25 +1,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <div>
 
-	<table>
-		<thead>
+	<form:form action="processAjoutQuestionnaire" method="POST"
+		modelAttribute="nouveauQuestionnaire">
+		<table>
 			<tr>
-				<th style="text-align: center;">ID</th>
-				<th style="text-align: center;">Nom</th>
-				<th style="text-align: center;">Ajouter</th>
+				<td style="text-align: center;"><form:label path="nom">Nom</form:label></td>
+				<td><form:input id="nom" path="nom" type="text" /></td>
 			</tr>
-		</thead>
+			<tr>
+				<td><button type="submit">Ajouter</i></button></td>
+				<td></td>
+			</tr>
+		</table>
+	</form:form>
 
-		<tbody>
-			<c:forEach items="${QuestionnairesTest}" var="Questionnaire">
-				<tr>
-					<td style="text-align: center;">${Questionnaire.id}</td>
-					<td style="text-align: center;">${Questionnaire.nom }</td>
-					<td style="text-align: center;" ><a href="/BossFinal/${Questionnaire.id}/ajoutQuestion" }>Ajouter question</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
 </div>
