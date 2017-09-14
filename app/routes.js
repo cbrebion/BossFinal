@@ -14,5 +14,9 @@ app.config(function($routeProvider) {
 		.when("/ws-pointdacces", {
 			templateUrl: "./app/components/websocket/websocket.html",
 			controller: "socketController"
+		})
+		.when("/remerciements", {
+			templateUrl: "./app/components/remerciements/remerciements.html",
+			controller: "remerciementsController"
 		});
 });
