@@ -8,8 +8,11 @@
       </p>
     </li>
   </ul>
-  <button class="btn waves-effect waves-light blue darken-3" ng-click="suivant()">
+  <button ng-show="showNext" class="btn waves-effect waves-light blue darken-3" ng-click="suivant()">
     Suivant <i class="material-icons right">send</i>
+  </button>
+  <button ng-show="showFinish" class="btn waves-effect waves-light blue darken-3" ng-click="terminer()">
+    Fini ! <i class="material-icons right">send</i>
   </button>
 </form>
 <span>Choix : {{ proposition.id }}</span>

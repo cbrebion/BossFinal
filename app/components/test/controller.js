@@ -6,6 +6,8 @@ app.controller("testController", function($scope, Page, testResource, reponseFac
   Page.setTitle("Test");
 
   $scope.proposition = {};
+  $scope.showFinish = false;
+  $scope.showNext = true;
 
   candidatTestService.candidatTest.$promise.then(function() {
     $scope.candidatTest = candidatTestService.candidatTest;
@@ -26,11 +28,12 @@ app.controller("testController", function($scope, Page, testResource, reponseFac
     $scope.question = questions[$scope.index];
 
     $scope.suivant = function() {
-      console.log($scope.proposition);
+
       // Sauvegarde de la réponse
       var reponse = {};
       reponse = reponseFactory.create($scope.proposition, $scope.candidatTest);
-      console.log(reponse);
+
+      // Enregistrement de la réponse
       reponseResource.add(reponse, function() {
         $scope.proposition = {};
       });
@@ -38,8 +41,26 @@ app.controller("testController", function($scope, Page, testResource, reponseFac
 
       // Passage à la question suivante
       $scope.index++;
+      if ($scope.index == questions.length) {
+        $scope.showFinish = true;
+        $scope.showNext = false;
+      }
       $scope.question = questions[$scope.index];
     }
+
+
+    $scope.terminer = function() {
+      // Sauvegarde de la dernière réponse
+      var reponse = {};
+      reponse = reponseFactory.create($scope.proposition, $scope.candidatTest);
+
+      // Enregistrement de la réponse
+      reponseResource.add(reponse, function() {
+        $scope.proposition = {};
+      });
+
+      $location.path("/remerciements");
+    };
   });
 
 
