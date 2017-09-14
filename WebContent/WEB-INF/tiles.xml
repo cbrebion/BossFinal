@@ -34,6 +34,13 @@
 		<put-attribute name="title" value="Creation d'un candidat" />
 		<put-attribute name="contenu" value="/WEB-INF/views/jsp/candidat/candidat.jsp" />
 	</definition>
+	
+		<!-- Configuration de la vue "creation d'un candidatTest" -->
+	<definition name="ajoutCandidatTest" extends="base.definition">
+		<put-attribute name="title" value="Creation d'un candidatTest" />
+		<put-attribute name="contenu" value="/WEB-INF/views/jsp/candidat/ajoutCandidatTest.jsp" />
+	</definition>
+	
 
 <!-- Configuration de la vue "liste des tests" -->
 	<definition name="affichageTests" extends="base.definition">
