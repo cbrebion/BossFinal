@@ -1,10 +1,11 @@
 var app = angular.module("tpAngular");
 
 
-app.controller("testController", function($scope, Page, testResource) {
+app.controller("testController", function($scope, Page, testResource, candidatTestService) {
 
   Page.setTitle("Liste des tests");
 
-  $scope.test = testResource.getFromCode({code:$scope.code});
+  $scope.toto = candidatTestService.candidatTest;
+  //$scope.test = testResource.getFromCode({code:$scope.code});
 
 });
