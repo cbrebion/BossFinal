@@ -72,11 +72,10 @@ public class CandidatController {
 		
 		//récupération du candidat
 		Candidat candidat = candidatDAO.find(idCandidat);
-		String code = UUID.randomUUID().toString().substring(0, 6);
+		
 		//creation d'un candidat test auquel on set le candidat récupéré ci dessus
 		CandidatTest candidatTest = new CandidatTest();
 		candidatTest.setCandidat(candidat);
-		candidatTest.setCode(code);
 		//on met le candidatTest en model attribut
 		model.addAttribute("candidatTestToCreate", candidatTest);
 		
