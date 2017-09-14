@@ -1,0 +1,8 @@
+<nav>
+	<ul id="slide-out" class="side-nav fixed">
+		<li class="bold" ng-repeat="candidat in candidats | orderBy:'candidat.id'" ng-class="Page.isActive('/')"><a href="#!/{{candidat.id}}" class="waves-effect waves-teal">Accueil</a></li>
+	</ul>
+
+	<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu">menu</i></a>
+	ji
+</nav>

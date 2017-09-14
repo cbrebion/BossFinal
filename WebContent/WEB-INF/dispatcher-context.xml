@@ -54,13 +54,7 @@
 		<property name="defaultLocale" value="fr" />
 	</bean>
 
-	<websocket:message-broker application-destination-prefix="/">
-		<websocket:stomp-endpoint path="/ws-pointdacces">
-			<websocket:sockjs />
-		</websocket:stomp-endpoint>
-		
-		<websocket:simple-broker prefix="/" />
-	</websocket:message-broker>
+
 	
 	
 	
