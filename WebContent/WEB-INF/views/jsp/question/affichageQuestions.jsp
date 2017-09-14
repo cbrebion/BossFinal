@@ -8,6 +8,7 @@
 		<div style="float: right;">
 			<a href='questions/<c:out value="${question.id}" />/supprimer' class="secondary-content posRelative" title="Supprimer"><i class="material-icons">cancel</i></a>
 			<a href='questions/<c:out value="${question.id}" />/modifier' class="secondary-content posRelative" title="Editer"><i class="material-icons">edit</i></a>
+			<a href='/BossFinal/<c:out value="${question.id}" />/propositions' class="secondary-content posRelative" title="Afficher propositions"><i class="material-icons">remove_red_eye</i></a>
 		</div>
 	</li>
 	</c:forEach>
