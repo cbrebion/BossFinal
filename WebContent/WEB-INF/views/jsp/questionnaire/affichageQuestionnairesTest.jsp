@@ -23,15 +23,15 @@
 					<td style="text-align: center;">${Questionnaire.id}</td>
 					<td style="text-align: center;">${Questionnaire.nom }</td>
 					<td style="text-align: center;">${Questionnaire.tests.size() }</td>
-					<td style="text-align: center;"><a href="/BossFinal/${Questionnaire.id}/questions">Afficher questions</a></td>
+					<td style="text-align: center;"><a href="/BossFinal/${Questionnaire.id}/questions" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">remove_red_eye</i></a></td>
 					
-					<td style="text-align: center;" ><a href="/BossFinal/${Questionnaire.id}/ajoutQuestion" }>Ajouter question</a></td>
+					<td style="text-align: center;" ><a href="/BossFinal/${Questionnaire.id}/ajoutQuestion" } class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add_to_photos</i></a></td>
 					
 					<c:if test="${Questionnaire.tests.contains(Test) }">
-						<td style="text-align: center;" ><a href="dissocier/${Questionnaire.id}" }>Dissocier</a></td>
+						<td style="text-align: center;" ><a href="dissocier/${Questionnaire.id}" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">gps_fixed</i></a></a></td>
 					</c:if>
 					<c:if test="${!Questionnaire.tests.contains(Test) }">
-						<td style="text-align: center;" ><a href="associer/${Questionnaire.id}" }>Associer</a></td>
+						<td style="text-align: center;" ><a href="associer/${Questionnaire.id}" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">gps_not_fixed</i></a></a></td>
 					</c:if>
 				</tr>
 			</c:forEach>

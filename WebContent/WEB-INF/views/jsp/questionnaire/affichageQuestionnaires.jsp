@@ -6,22 +6,22 @@
 	<table>
 		<thead>
 			<tr>
-				<th style="text-align: center;">ID</th>
-				<th style="text-align: center;">Nom</th>
-				<th style="text-align: center;">Nbre de tests</th>
-				<th style="text-align: center;">Afficher questions</th>
-				<th style="text-align: center;">Ajouter</th>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Nbre de tests</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 
 		<tbody>
 			<c:forEach items="${Questionnaires}" var="Questionnaire">
 				<tr>
-					<td style="text-align: center;">${Questionnaire.id}</td>
-					<td style="text-align: center;">${Questionnaire.nom }</td>
-					<td style="text-align: center;">${Questionnaire.tests.size() }</td>
-					<td style="text-align: center;"><a href="/BossFinal/${Questionnaire.id}/questions">Afficher questions</a></td>
-					<td style="text-align: center;" ><a href="${Questionnaire.id}/ajoutQuestion" }>Ajouter question</a></td>
+					<td>${Questionnaire.id}</td>
+					<td>${Questionnaire.nom }</td>
+					<td>${Questionnaire.tests.size() }</td>
+					<td><a href="/BossFinal/${Questionnaire.id}/questions" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">remove_red_eye</i></a></td>
+					<td><a href="${Questionnaire.id}/ajoutQuestion" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add_to_photos</i></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
