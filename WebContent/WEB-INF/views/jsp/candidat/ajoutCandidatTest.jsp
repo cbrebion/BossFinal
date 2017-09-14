@@ -4,8 +4,8 @@
 <div class="row">
 	<div class="row">
 		<div class="input-field col s4 offset-s4">
-			<p> Ajouter un ou plusieurs test au candidat suivant : <b> ${candidatTestToCreate.candidat.nom}
-			${candidatTestToCreate.candidat.prenom}</b></p>
+			<p> Ajouter un ou plusieurs test au candidat suivant : <b> ${candidat.nom}
+			${candidat.prenom}</b></p>
 		</div>
 
 		<table>
@@ -20,9 +20,14 @@
 					<tr>
 						<td>${test}</td>
 						<td>
-							<c:if test = "${candidatTestToCreate.code == null}">
-							<a href="">Ajouter un test</a></c:if>
-							<c:if test ="${candidatTestToCreate.code !=null}">${candidatTestToCreate.code }</c:if>
+							<c:set var="cdtTest" value=""/>
+							
+							<c:forEach items="${candidat.candidatTests}" var="candidatTest">
+								<c:if test="${test.candidatTests.contains(candidatTest)}"><c:set var="cdtTest" value="${candidatTest.code}"/></c:if>
+							</c:forEach>
+							
+							<c:if test="${cdtTest != ''}">${cdtTest}</c:if>
+							<c:if test="${cdtTest eq ''}"><a href="/BossFinal/${candidat.id}/associerTest/${test.id}">Ajouter un test</a></c:if>
 						</td>
 					</tr>
 				</c:forEach>

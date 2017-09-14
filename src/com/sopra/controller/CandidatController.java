@@ -28,7 +28,7 @@ public class CandidatController {
 	private ICandidatDAO candidatDAO;
 	
 	@Autowired 
-	private ICandidatTestDAO candTestDAO;
+	private ICandidatTestDAO candidatTestDAO;
 	
 	@Autowired
 	private ITestDAO testDAO;
@@ -68,16 +68,13 @@ public class CandidatController {
 	
 	//récupération du candidat pour créer un candidat Test 
 	@RequestMapping(value="{idCandidat}/ajouterTest", method=RequestMethod.GET)
-	public String creationCandidatTest(@PathVariable Integer idCandidat, Model model) {
+	public String candidatTest(@PathVariable Integer idCandidat, Model model) {
 		
 		//récupération du candidat
 		Candidat candidat = candidatDAO.find(idCandidat);
-		
-		//creation d'un candidat test auquel on set le candidat récupéré ci dessus
-		CandidatTest candidatTest = new CandidatTest();
-		candidatTest.setCandidat(candidat);
+
 		//on met le candidatTest en model attribut
-		model.addAttribute("candidatTestToCreate", candidatTest);
+		model.addAttribute("candidat", candidat);
 		
 		//on met aussi en modelAttribut la liste de Test disponible
 		List<Test> tests = testDAO.findAll();
@@ -86,6 +83,28 @@ public class CandidatController {
 		return "ajoutCandidatTest";
 	}
 	
-	
+	@RequestMapping(value="{idCandidat}/associerTest/{idTest}", method=RequestMethod.GET)
+	public String creationCandidatTest(@PathVariable Integer idCandidat, @PathVariable Integer idTest, Model model) {
+		//récupération du candidat
+		Candidat candidat = candidatDAO.find(idCandidat);
+		//récupération du test
+		Test test = testDAO.find(idTest);
+		
+		//creation d'un candidat test auquel on set le candidat récupéré ci dessus
+		CandidatTest candidatTest = new CandidatTest();
+		
+		
+		//création du code aléatoire et unique sur 6 chiffres
+		String code = UUID.randomUUID().toString().substring(0, 6);
+
+		candidatTest.setCandidat(candidat);
+		candidatTest.setCode(code);
+		candidatTest.setTest(test);
+		
+		//sauvegarde du candidat test en Bdd
+		candidatTestDAO.save(candidatTest);
+		
+		return "redirect:/{idCandidat}/ajouterTest";
+	}
 	
 }
