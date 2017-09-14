@@ -44,9 +44,8 @@ public class QuestionnaireController {
 													Model model
 													) {
 			Test test = testDAO.find(id);
-			System.out.println(test.getId());
 			model.addAttribute("Test", test);
-			model.addAttribute("QuestionnairesTest", test.getQuestionnaires());
+			model.addAttribute("QuestionnairesTest", questionnaireDAO.findAll());
 			
 			return "affichageQuestionnairesTest";
 		}
@@ -104,8 +103,6 @@ public class QuestionnaireController {
 			
 			return "redirect:/test-{idT}/questionnaires";
 		}
-		
-		
 		
 		
 		

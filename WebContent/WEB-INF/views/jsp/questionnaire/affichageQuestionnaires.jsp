@@ -18,7 +18,7 @@
 				<tr>
 					<td style="text-align: center;">${Questionnaire.id}</td>
 					<td style="text-align: center;">${Questionnaire.nom }</td>
-					<td style="text-align: center;"></td>
+					<td style="text-align: center;">${Questionnaire.tests.size() }</td>
 					<td style="text-align: center;" ><a href="${Questionnaire.id}/ajoutQuestion" }>Ajouter question</a></td>
 				</tr>
 			</c:forEach>
