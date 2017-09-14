@@ -26,7 +26,7 @@
 	</table>
 </div>
 <div class="col s3 offset-s7">
-<a class="waves-effect waves-light btn-large" href="propositions/ajouter" style="width : 400px; margin-top : 150px;">
+<a class="waves-effect waves-light btn-large blue darken-3" href="propositions/ajouter" style="width : 400px; margin-top : 150px;">
 <i class="material-icons right">add_circle_outline</i>Ajouter une proposition</a>
 </div>
 </div>

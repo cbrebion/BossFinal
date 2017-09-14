@@ -17,7 +17,7 @@
 				<form:errors path="correct" style="color :#d32f2f "></form:errors>
 			<p>
 			<div class="input-field col s4 offset-s4">
-				<button class="btn waves-effect waves-light" type="submit">
+				<button class="btn waves-effect waves-light blue darken-3" type="submit">
 					Enregistrer <i class="material-icons right">send</i>
 				</button>
 			</div>
