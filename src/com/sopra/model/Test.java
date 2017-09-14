@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Test")
 public class Test implements Serializable{
@@ -32,6 +34,7 @@ public class Test implements Serializable{
 	@ManyToMany(mappedBy="tests")
 	protected List<Questionnaire> questionnaires;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="test")
 	protected List<CandidatTest> candidatTests;
 	
@@ -107,7 +110,7 @@ public class Test implements Serializable{
 		this.candidatTests = candidatTests;
 	}
 
-	//pour récupérer le nom du test
+	//pour rï¿½cupï¿½rer le nom du test
 	public String toString() {
 		return niveau+" "+branche;
 	}

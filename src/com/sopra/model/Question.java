@@ -16,6 +16,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="question")
 public class Question implements Serializable{
@@ -27,6 +29,7 @@ public class Question implements Serializable{
 	@Column(name="QUE_ID")
 	private int id;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="QUE_QUESTIONNAIRE")
 	private Questionnaire questionnaire;

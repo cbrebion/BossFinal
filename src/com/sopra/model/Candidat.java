@@ -7,6 +7,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="candidat")
@@ -15,6 +17,7 @@ public class Candidat extends Personne {
 	private static final long serialVersionUID = 1L;
 	
 	// Attributs
+	@JsonIgnore
 	@OneToMany(mappedBy="candidat")
 	protected List<CandidatTest> candidatTests;
 

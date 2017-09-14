@@ -32,10 +32,11 @@ public class Proposition implements Serializable {
 	private String libelle;
 	
 	@Column(name="PRO_CORRECT")
-	@NotNull
 	@JsonIgnore
+	@NotNull
 	private boolean correct;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="PRO_QUESTION_ID")
 	private Question question;
