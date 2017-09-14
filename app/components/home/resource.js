@@ -1,9 +1,8 @@
 app.factory('connexionResource', ['$resource', 'API_URL', function($resource, API_URL) {
 
-  return $resource(API_URL + '/connexion', null, {
+  return $resource(API_URL + '/candidattest/connexion', null, {
     "logIn": {
-      method: 'POST',
-      params: {code: "="}
+      method: 'POST'
     }
   });
 }]);
